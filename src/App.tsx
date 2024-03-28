@@ -1,13 +1,8 @@
-import Header from './containers/Header'
-import Intro from './containers/Intro'
+import { RouterProvider } from 'react-router-dom'
+import Rotas from './Pages/Rotas'
 
 function App() {
-  return (
-    <>
-      <Header />
-      <Intro />
-    </>
-  )
+  return <RouterProvider router={Rotas} />
 }
 
 export default App
