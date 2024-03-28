@@ -1,52 +1,75 @@
 const Intro = () => {
   return (
-    <section className="bg-dark">
+    <section className="bg-light-subtle">
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
             <div className="text-center mb-5">
-              <h2 className="text-light fw-bold fs-1">Organize suas</h2>
-              <h2 className="fw-bold fs-1  text-primary">Financas</h2>
+              <h2 className="text-dark fw-bold fs-1">Organize your</h2>
+              <h2 className="fw-bold fs-1  text-primary">Personal finances</h2>
             </div>
-            <p className="lead text-light fs-5 fw-light mb-5">
-              Organize sua vida financeira com facilidade! Bem-vindo ao nosso
-              site de finanças, sua ferramenta indispensável para alcançar
-              estabilidade e tranquilidade financeira. Sabemos que gerenciar
-              suas finanças pode ser desafiador, mas estamos aqui para
-              simplificar esse processo para você.
+            <p className="lead text-dark fs-4 fw-medium mb-5">
+              Organize sua{' '}
+              <span className="border-bottom border-2 border-primary text-primary">
+                vida financeira
+              </span>{' '}
+              com facilidade! Bem-vindo ao nosso site de finanças, sua
+              ferramenta indispensável para alcançar{' '}
+              <span className="border-bottom border-2 border-success text-success">
+                estabilidade e tranquilidade
+              </span>{' '}
+              financeira. Sabemos que gerenciar suas finanças pode ser{' '}
+              <span className="border-bottom border-2 border-danger text-danger">
+                desafiador
+              </span>
+              , mas estamos aqui para simplificar esse processo para você.
             </p>
 
-            <p className="lead text-light fs-5 fw-light mb-5">
-              Com nosso site intuitivo e recursos abrangentes, você pode
-              acompanhar seus gastos, criar orçamentos personalizados e
-              visualizar suas metas financeiras de forma clara e acessível. Não
-              importa se você está economizando para uma viagem dos sonhos,
-              planejando sua aposentadoria ou simplesmente querendo controlar
-              melhor seus gastos diários, nós temos as ferramentas certas para
-              você.
-            </p>
-
-            <p className="lead text-light fs-5 fw-light mb-5">
-              Além disso, oferecemos conselhos e dicas financeiras úteis para
-              ajudá-lo a maximizar seu dinheiro e evitar armadilhas comuns.
-              Nosso objetivo é capacitá-lo a tomar decisões financeiras
-              informadas e alcançar seus objetivos sem estresse desnecessário.
-            </p>
-
-            <p className="lead text-light fs-5 fw-light mb-5">
-              Com a segurança e confiabilidade do nosso site, você pode ficar
-              tranquilo sabendo que suas informações estão protegidas enquanto
-              trabalha para melhorar sua situação financeira. Então, não espere
-              mais. Junte-se a nós hoje e comece a trilhar o caminho para uma
-              vida financeira mais organizada e próspera!
-            </p>
-
-            <a href="#" className="btn btn-light fw-semibold mt-5">
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#modalData"
+              className="btn btn-outline-primary fw-semibold"
+            >
               Fazer Simulacao
-            </a>
+            </button>
           </div>
         </div>
-        <div className="row py-5"></div>
+
+        {/* Modal */}
+        <div
+          className="modal fade"
+          id="modalData"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabIndex={-1}
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                  Preencha as seguintes informacoes
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <form></form>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-danger fw-semibold">
+                  Simular
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
