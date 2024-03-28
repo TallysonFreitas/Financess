@@ -1,12 +1,13 @@
 const Header = () => {
   return (
-    <header className="fixed-top">
+    <header className="fixed-top shadow">
       <nav className="navbar navbar-expand-lg bg-dark border-bottom border-light-subtle">
         <div className="container">
-          <a href="#" className="navbar-brand text-primary">
-            <span className="fw-bold">
-              <i className="bi bi-bar-chart-fill"></i> Financess
+          <a href="#" className="navbar-brand fw-bold">
+            <span className="text-danger me-2">
+              <i className="bi bi-bar-chart-fill"></i>
             </span>
+            <span className="text-danger">Financess</span>
           </a>
           <button
             className="navbar-toggler bg-light"
@@ -23,7 +24,7 @@ const Header = () => {
             className="collapse navbar-collapse justify-content-end"
             id="headerDropdown"
           >
-            <ul className="navbar-nav me-3">
+            <ul className="navbar-nav">
               <li className="nav-item fw-semibold">
                 <a className="nav-link text-light" aria-current="page" href="#">
                   Intro
