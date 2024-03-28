@@ -1,15 +1,15 @@
 const Header = () => {
   return (
-    <header>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <header className="fixed-top">
+      <nav className="navbar navbar-expand-lg bg-dark border-bottom border-light-subtle">
         <div className="container">
-          <a href="#" className="navbar-brand">
+          <a href="#" className="navbar-brand text-primary">
             <span className="fw-bold">
               <i className="bi bi-bar-chart-fill"></i> Financess
             </span>
           </a>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler bg-light"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#headerDropdown"
@@ -23,14 +23,14 @@ const Header = () => {
             className="collapse navbar-collapse justify-content-end"
             id="headerDropdown"
           >
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+            <ul className="navbar-nav me-3">
+              <li className="nav-item fw-semibold">
+                <a className="nav-link text-light" aria-current="page" href="#">
                   Intro
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
+              <li className="nav-item fw-semibold">
+                <a className="nav-link text-light" href="#">
                   Start
                 </a>
               </li>
