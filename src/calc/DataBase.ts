@@ -14,11 +14,11 @@ function GeraDataBase() {
       String(anoAtual + 4),
       String(anoAtual + 5)
     ],
-    valorDivida: preload.map((each) => {
-      return each.dividas
-    }),
     valorAcumulado: preload.map((each) => {
       return each.acumulado
+    }),
+    valorDivida: preload.map((each) => {
+      return each.dividas
     })
   }
 
@@ -32,7 +32,7 @@ function GeraDataBase() {
     })
   }
 
-  const DataFinal = [['Ano', 'Dividas', 'Dinheiro Acumulado'], ...data]
+  const DataFinal = [['Ano', 'Dinheiro Acumulado', 'Dividas'], ...data]
 
   return DataFinal
 }
