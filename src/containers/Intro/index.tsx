@@ -1,11 +1,19 @@
-import { useState } from 'react'
 import TituloGradrient from '../../components/TituloGradient'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../Redux/store'
+import {
+  alteraDespesas,
+  alteraDividas,
+  alteraSalario
+} from '../../Redux/Reducers/ValoresSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Intro = () => {
-  const [valores, setValores] = useState({
-    salario: '',
-    despesas: '',
-    dividas: ''
+  const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+  const { salario, despesas, dividas } = useSelector((state: RootReducer) => {
+    return state.valores
   })
 
   return (
@@ -83,12 +91,9 @@ const Intro = () => {
                       </span>
                       <input
                         type="number"
-                        value={valores.salario}
+                        value={salario}
                         onChange={(e) => {
-                          setValores({
-                            ...valores,
-                            salario: e.target.value
-                          })
+                          dispatch(alteraSalario(e.target.value))
                         }}
                         className="form-control"
                         placeholder="0,00"
@@ -109,12 +114,9 @@ const Intro = () => {
                       </span>
                       <input
                         type="number"
-                        value={valores.despesas}
+                        value={despesas}
                         onChange={(e) => {
-                          setValores({
-                            ...valores,
-                            despesas: e.target.value
-                          })
+                          dispatch(alteraDespesas(e.target.value))
                         }}
                         className="form-control"
                         placeholder="0,00"
@@ -135,12 +137,9 @@ const Intro = () => {
                       </span>
                       <input
                         type="number"
-                        value={valores.dividas}
+                        value={dividas}
                         onChange={(e) => {
-                          setValores({
-                            ...valores,
-                            dividas: e.target.value
-                          })
+                          dispatch(alteraDividas(e.target.value))
                         }}
                         className="form-control"
                         placeholder="0,00"
@@ -153,10 +152,17 @@ const Intro = () => {
                 </form>
               </div>
               <div className="modal-footer">
-                salario:{valores.salario}
-                despesas:{valores.despesas}
-                dividas:{valores.dividas}
-                <button type="button" className="btn btn-danger fw-semibold">
+                salario:{salario}
+                despesas:{despesas}
+                dividas:{dividas}
+                <button
+                  type="button"
+                  className="btn btn-danger fw-semibold"
+                  data-bs-dismiss="modal"
+                  onClick={() => {
+                    navigate('/analytics')
+                  }}
+                >
                   Simular
                 </button>
               </div>

@@ -1,9 +1,18 @@
+import { useNavigate } from 'react-router-dom'
+
 const Header = () => {
+  const navigate = useNavigate()
+
   return (
     <header className="fixed-top shadow">
       <nav className="navbar navbar-expand-lg bg-dark border-bottom border-light-subtle">
         <div className="container">
-          <a href="#" className="navbar-brand fw-bold">
+          <a
+            onClick={() => {
+              navigate('/')
+            }}
+            className="navbar-brand fw-bold"
+          >
             <span className="text-danger me-2">
               <i className="bi bi-bar-chart-fill"></i>
             </span>
