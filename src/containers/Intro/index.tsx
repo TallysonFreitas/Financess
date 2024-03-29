@@ -152,9 +152,6 @@ const Intro = () => {
                 </form>
               </div>
               <div className="modal-footer">
-                salario:{salario}
-                despesas:{despesas}
-                dividas:{dividas}
                 <button
                   type="button"
                   className="btn btn-danger fw-semibold"

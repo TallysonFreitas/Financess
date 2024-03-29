@@ -18,7 +18,7 @@ function CalculaValores() {
     salario: Number(salario)
   }
 
-  if (salario < despesas) {
+  if (valores.salario < valores.despesas) {
     window.alert(
       'Como seu salario é menor que o seu gasto mensal com despesas, Voce nunca zerará sua divida'
     )

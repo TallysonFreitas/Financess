@@ -135,7 +135,7 @@ const Graphics = () => {
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Saepe, quasi.
                     </p>
-                    <small className="text-muted">
+                    <small className="text-muted d-block">
                       <s>
                         {usuarioVal.capitalAcumulado.toLocaleString('pt-br', {
                           style: 'currency',
@@ -143,12 +143,9 @@ const Graphics = () => {
                         })}
                       </s>
                     </small>
-                    <p className="lead fw-bold">
-                      {usuarioVal.dividaRestante.toLocaleString('pt-br', {
-                        style: 'currency',
-                        currency: 'BRL'
-                      })}
-                    </p>
+                    <button className="btn btn-outline-warning fw-bold mt-2">
+                      Calcular
+                    </button>
                   </div>
                 </div>
               </div>
