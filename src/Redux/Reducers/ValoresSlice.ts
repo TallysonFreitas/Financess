@@ -1,18 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-const initialState = { salario: 0, despesas: 0, dividas: 0 }
+const initialState = { salario: '', despesas: '', dividas: '' }
 
 const ValoresSlice = createSlice({
   name: 'ValoresSlice',
   initialState,
   reducers: {
-    alteraSalario: (state, action: PayloadAction<number>) => {
-      state.salario = action.payload
+    alteraSalario: (state, action: PayloadAction<string>) => {
+      state.salario = action.payload.replace(/,/, '')
     },
-    alteraDespesas: (state, action: PayloadAction<number>) => {
+    alteraDespesas: (state, action: PayloadAction<string>) => {
       state.despesas = action.payload
     },
-    alteraDividas: (state, action: PayloadAction<number>) => {
+    alteraDividas: (state, action: PayloadAction<string>) => {
       state.dividas = action.payload
     }
   }
