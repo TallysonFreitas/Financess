@@ -13,20 +13,22 @@ const Intro = () => {
               </h2>
             </div>
             <p className="lead text-dark fs-4 fw-medium mb-5">
-              Organize sua{' '}
-              <span className="border-bottom border-2 border-primary text-primary">
-                vida financeira
+              <p>
+                Organize your{' '}
+                <span className="text-primary border-bottom border-primary border-3">
+                  financial life
+                </span>{' '}
+                easily!{' '}
+              </p>
+              Welcome to our finance website, your necessary tool to achieve{' '}
+              <span className="text-success border-bottom border-3 border-success">
+                financial stability and peace of mind
               </span>{' '}
-              com facilidade! Bem-vindo ao nosso site de finanças, sua
-              ferramenta indispensável para alcançar{' '}
-              <span className="border-bottom border-2 border-success text-success">
-                estabilidade e tranquilidade
-              </span>{' '}
-              financeira. Sabemos que gerenciar suas finanças pode ser{' '}
-              <span className="border-bottom border-2 border-danger text-danger">
-                desafiador
+              . We know managing your finances{' '}
+              <span className="text-danger border-bottom border-3 border-danger">
+                can be challenging
               </span>
-              , mas estamos aqui para simplificar esse processo para você.
+              , but we&apos;re here to simplify the process for you.
             </p>
 
             <button
