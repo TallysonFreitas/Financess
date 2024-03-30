@@ -43,6 +43,7 @@ function GeraDados() {
       } else {
         if (dividaTemp < 0) {
           montanteTemp -= dividaTemp
+          jurosTemp -= dividaTemp
           dividaTemp = 0
         }
         // corre juros à variavel juros
