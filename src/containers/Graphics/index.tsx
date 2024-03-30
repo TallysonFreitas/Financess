@@ -1,7 +1,6 @@
 import Chart from 'react-google-charts'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../Redux/store'
-import { useState } from 'react'
 import TituloGradrient from '../../components/TituloGradient'
 import GeraDados from '../../calc/Financess_Logica'
 
@@ -14,12 +13,12 @@ const Graphics = () => {
 
   const data = GeraDados()
 
-  const [usuarioVal, setUsuarioVal] = useState({
+  const usuarioVal = {
     capitalAcumulado: data[6][1],
     dividaRestante: data[6][2],
     dinheiroPotencial: Number(salario) - Number(despesas),
     jurosAcumulado: data[6][3]
-  })
+  }
 
   const graphicsOptions = {
     title: 'Evolução Financeira',
