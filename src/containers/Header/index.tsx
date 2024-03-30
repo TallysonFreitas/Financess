@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const Header = () => {
   return (
     <header className="fixed-top shadow">
@@ -26,14 +28,14 @@ const Header = () => {
           >
             <ul className="navbar-nav">
               <li className="nav-item fw-semibold">
-                <a className="nav-link text-light" aria-current="page" href="#">
+                <a className="nav-link text-light" aria-current="page" href="/">
                   Intro
                 </a>
               </li>
               <li className="nav-item fw-semibold">
-                <a className="nav-link text-light" href="#">
-                  Start
-                </a>
+                <Link className="nav-link text-light" to="/about">
+                  About
+                </Link>
               </li>
             </ul>
           </div>

@@ -36,11 +36,11 @@ const Graphics = () => {
           {/* Insights */}
           <div className="col-lg-6">
             <div className="d-flex justify-content-center">
-              <h2 className="fw-semibold border-bottom border-3 border-success">
+              <h2 className="fw-semibold border-bottom border-3 border-success mb-3">
                 <i className="bi bi-cash-coin text-success"></i> Insights
               </h2>
             </div>
-            <p className="lead text-muted fw-medium fs-5">
+            <p className="lead text-muted fw-medium fs-5 mb-4">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis,
               fugit!
             </p>
