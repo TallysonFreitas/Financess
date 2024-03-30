@@ -1,21 +1,24 @@
 import Chart from 'react-google-charts'
-import GeraDataBase from '../../calc/DataBase'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../Redux/store'
 import { useState } from 'react'
 import TituloGradrient from '../../components/TituloGradient'
+import GeraDados from '../../calc/Financess_Logica'
 
 const Graphics = () => {
-  const { salario, despesas, dividas } = useSelector((state: RootReducer) => {
-    return state.valores
-  })
+  const { salario, despesas, dividas, juros } = useSelector(
+    (state: RootReducer) => {
+      return state.valores
+    }
+  )
 
-  const data = GeraDataBase()
+  const data = GeraDados()
 
   const [usuarioVal, setUsuarioVal] = useState({
     capitalAcumulado: data[6][1],
     dividaRestante: data[6][2],
-    dinheiroPotencial: Number(salario) - Number(despesas)
+    dinheiroPotencial: Number(salario) - Number(despesas),
+    jurosAcumulado: data[6][3]
   })
 
   const graphicsOptions = {
@@ -53,8 +56,8 @@ const Graphics = () => {
                       Acumulado
                     </h5>
                     <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Saepe, quasi.
+                      Após pagar suas dividas, é calculado qual o valor
+                      acumulado do seu dinheiro
                     </p>
                     <small className="text-muted">
                       <s>R$ 0,00</s>
@@ -75,8 +78,7 @@ const Graphics = () => {
                       <i className="bi bi-coin text-danger"></i> Divida Restante
                     </h5>
                     <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Saepe, quasi.
+                      Valor restante das suas dívidas após 5 anos
                     </p>
                     <small className="text-muted">
                       <s>
@@ -104,8 +106,8 @@ const Graphics = () => {
                       Potencial
                     </h5>
                     <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Saepe, quasi.
+                      É o valor destinado aoo pagamento de dividas ou acumulo de
+                      capital descontado as despesas
                     </p>
                     <small className="text-muted">
                       {Number(salario).toLocaleString('pt-br', {
@@ -132,10 +134,9 @@ const Graphics = () => {
                       Potencial com Juros
                     </h5>
                     <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Saepe, quasi.
+                      Valor caso investido capital seja investido - {juros}%
                     </p>
-                    <small className="text-muted d-block">
+                    <small className="text-muted">
                       <s>
                         {usuarioVal.capitalAcumulado.toLocaleString('pt-br', {
                           style: 'currency',
@@ -143,9 +144,12 @@ const Graphics = () => {
                         })}
                       </s>
                     </small>
-                    <button className="btn btn-outline-warning fw-bold mt-2">
-                      Calcular
-                    </button>
+                    <p className="lead fw-bold">
+                      {usuarioVal.jurosAcumulado.toLocaleString('pt-br', {
+                        style: 'currency',
+                        currency: 'BRL'
+                      })}
+                    </p>
                   </div>
                 </div>
               </div>

@@ -10,7 +10,7 @@ export const STituloGradient = styled.div`
     rgba(182, 34, 34, 1) 100%
   );
   background-size: 400% 100%;
-  animation: gradient 10s linear infinite;
+  animation: gradient 8s linear infinite;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

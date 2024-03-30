@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-const initialState = { salario: '', despesas: '', dividas: '' }
+const initialState = { salario: '', despesas: '', dividas: '', juros: '' }
 
 const ValoresSlice = createSlice({
   name: 'ValoresSlice',
@@ -14,10 +14,13 @@ const ValoresSlice = createSlice({
     },
     alteraDividas: (state, action: PayloadAction<string>) => {
       state.dividas = action.payload
+    },
+    alteraJuros: (state, action: PayloadAction<string>) => {
+      state.juros = action.payload
     }
   }
 })
 
 export default ValoresSlice.reducer
-export const { alteraDespesas, alteraDividas, alteraSalario } =
+export const { alteraDespesas, alteraDividas, alteraSalario, alteraJuros } =
   ValoresSlice.actions
