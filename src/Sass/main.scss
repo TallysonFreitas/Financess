@@ -1,5 +1,17 @@
 
 // custom variables
+$accordion-color:                         #fff;
+$accordion-bg:                            #555;
+$accordion-border-color:                  #272727;
+$accordion-button-color:                  #fff;
+$accordion-button-bg:                     #272727 ;
+$accordion-button-active-bg:              #272727;
+$accordion-button-active-color:           #fff;
+$accordion-icon-color:                    #fff;
+$accordion-icon-active-color:             #fff;
+$accordion-button-focus-box-shadow:       #fff;
+
+
 
 // import the functions & variables
 @import '../../node_modules/bootstrap/scss/functions';
