@@ -1,4 +1,5 @@
 import TituloGradrient from '../../components/TituloGradient'
+import FormModal from '../FormModal'
 
 const Intro = () => {
   return (
@@ -13,7 +14,7 @@ const Intro = () => {
               </h2>
             </div>
             <p className="lead text-dark fs-4 fw-medium mb-5">
-              <p>
+              <p className="mb-0">
                 Organize your{' '}
                 <span className="text-primary border-bottom border-primary border-3">
                   financial life
@@ -31,14 +32,7 @@ const Intro = () => {
               , but we&apos;re here to simplify the process for you.
             </p>
 
-            <button
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#modalData"
-              className="btn btn-outline-primary fw-semibold"
-            >
-              Fazer Simulacao
-            </button>
+            <FormModal />
           </div>
         </div>
       </div>

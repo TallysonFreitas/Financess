@@ -1,3 +1,10 @@
+import { useState } from 'react'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
+import Row from 'react-bootstrap/Row'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../Redux/store'
 import {
@@ -9,148 +16,176 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 const FormModal = () => {
+  // Infos
   const navigate = useNavigate()
-  const { despesas, dividas, salario, juros } = useSelector(
+
+  const dispatch = useDispatch()
+  const { despesas, dividas, juros, salario } = useSelector(
     (state: RootReducer) => {
       return state.valores
     }
   )
-  const dispatch = useDispatch()
+
+  // Modal
+
+  const [show, setShow] = useState(false)
+
+  const handleCloseModal = () => setShow(false)
+  const handleShowModal = () => setShow(true)
+
+  // Form
+
+  const [validated, setValidated] = useState(false)
+
+  const handleSubmit = (event: any) => {
+    const form = event.currentTarget
+    if (form.checkValidity() === false) {
+      event.preventDefault()
+      event.stopPropagation()
+    } else {
+      navigate('/analytics')
+    }
+
+    setValidated(true)
+  }
 
   return (
-    <div
-      className="modal fade"
-      id="modalData"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabIndex={-1}
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              Preencha as seguintes informacoes
-            </h1>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">
-            <form>
-              {/* Salario Input */}
-              <div className="mb-3">
-                <label htmlFor="salario" className="form-label">
-                  Salário
-                </label>
-                <div className="input-group">
-                  <span className="input-group-text" id="basic-addon1">
-                    R$
-                  </span>
-                  <input
+    <>
+      <Button
+        variant="outline-primary"
+        className="fw-semibold"
+        onClick={handleShowModal}
+      >
+        Make a simulation
+      </Button>
+
+      <Modal
+        show={show}
+        onHide={handleCloseModal}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Insert the following information</Modal.Title>
+        </Modal.Header>
+        {/* Form */}
+        <Modal.Body>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={(e) => {
+              handleSubmit(e)
+            }}
+          >
+            {/* Wage */}
+            <Row className="mb-3">
+              <Form.Label>Wage:</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupWage">R$</InputGroup.Text>
+                <Form.Control
+                  type="number"
+                  placeholder="0,00"
+                  aria-describedby="inputGroupWage"
+                  step={0.01}
+                  min={0.01}
+                  required
+                  value={salario}
+                  onChange={(e) => {
+                    dispatch(alteraSalario(e.target.value))
+                  }}
+                />
+                <Form.Control.Feedback>Looks good</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Invalid value
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Row>
+            {/* Expenses */}
+            <Row className="mb-3">
+              <Form.Label>Expenses:</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupExpenses">R$</InputGroup.Text>
+                <Form.Control
+                  type="number"
+                  placeholder="0,00"
+                  aria-describedby="inputGroupExpenses"
+                  step={0.01}
+                  min={0}
+                  required
+                  value={despesas}
+                  onChange={(e) => {
+                    dispatch(alteraDespesas(e.target.value))
+                  }}
+                />
+                <Form.Control.Feedback>Looks good</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Invalid value
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Row>
+            {/* Debts */}
+            <Row className="mb-3">
+              <Form.Label>Debts:</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupDebts">R$</InputGroup.Text>
+                <Form.Control
+                  type="number"
+                  placeholder="0,00"
+                  aria-describedby="inputGroupDebts"
+                  step={0.01}
+                  min={0}
+                  required
+                  value={dividas}
+                  onChange={(e) => {
+                    dispatch(alteraDividas(e.target.value))
+                  }}
+                />
+                <Form.Control.Feedback>Looks good</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Invalid value
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Row>
+            {/* Frees */}
+            <Row className="mb-3">
+              <Form.Group as={Col} md="6" controlId="validationFees">
+                <Form.Label>Fees:</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Control
                     type="number"
-                    value={salario}
-                    onChange={(e) => {
-                      dispatch(alteraSalario(e.target.value))
-                    }}
-                    className="form-control"
                     placeholder="0,00"
-                    aria-label="salario"
-                    aria-describedby="basic-addon1"
-                    id="salario"
-                  />
-                </div>
-              </div>
-              {/* Despesas Input */}
-              <div className="mb-3">
-                <label htmlFor="despesas" className="form-label">
-                  Despesas
-                </label>
-                <div className="input-group">
-                  <span className="input-group-text" id="basic-addon2">
-                    R$
-                  </span>
-                  <input
-                    type="number"
-                    value={despesas}
-                    onChange={(e) => {
-                      dispatch(alteraDespesas(e.target.value))
-                    }}
-                    className="form-control"
-                    placeholder="0,00"
-                    aria-label="despesas"
-                    aria-describedby="basic-addon2"
-                    id="despesas"
-                  />
-                </div>
-              </div>
-              {/* Dívidas Input */}
-              <div className="mb-3">
-                <label htmlFor="dividas" className="form-label">
-                  Dívidas
-                </label>
-                <div className="input-group">
-                  <span className="input-group-text" id="basic-addon3">
-                    R$
-                  </span>
-                  <input
-                    type="number"
-                    value={dividas}
-                    onChange={(e) => {
-                      dispatch(alteraDividas(e.target.value))
-                    }}
-                    className="form-control"
-                    placeholder="0,00"
-                    aria-label="dividas"
-                    aria-describedby="basic-addon3"
-                    id="dividas"
-                  />
-                </div>
-              </div>
-              {/* Juros Input */}
-              <div className="mb-3 w-50">
-                <label htmlFor="jurosInput" className="form-label">
-                  Juros
-                </label>
-                <div className="input-group">
-                  <input
-                    type="number"
+                    aria-describedby="inputGroupFees"
+                    step={0.01}
+                    min={0.01}
+                    required
                     value={juros}
                     onChange={(e) => {
                       dispatch(alteraJuros(e.target.value))
                     }}
-                    className="form-control"
-                    placeholder="10%"
-                    aria-label="jurosInput"
-                    aria-describedby="basic-addon4"
-                    id="jurosInput"
                   />
-                  <span className="input-group-text" id="basic-addon4">
-                    %
-                  </span>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-danger fw-semibold"
-              data-bs-dismiss="modal"
-              onClick={() => {
-                navigate('/analytics')
-              }}
-            >
+                  <InputGroup.Text id="inputGroupFees">%</InputGroup.Text>
+                  <Form.Control.Feedback>Looks good</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Invalid value
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+            </Row>
+            <Form.Group className="mb-3">
+              <Form.Check
+                required
+                label="Agree to terms and conditions"
+                feedback="You must agree before submitting."
+                feedbackType="invalid"
+              />
+            </Form.Group>
+            <Button variant="danger" className="fw-semibold" type="submit">
               Simular
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    </>
   )
 }
 
