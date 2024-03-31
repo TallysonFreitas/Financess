@@ -16,6 +16,17 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 const FormModal = () => {
+  // Formatacao Input
+
+  function formataInput(e: string) {
+    const valorString = e //0,009
+    const semVirgula = valorString.replace('.', '') //0009
+    const comVirgula = semVirgula.slice(0, semVirgula.length - 2)
+    const decimais = semVirgula.slice(semVirgula.length - 2, semVirgula.length)
+
+    return `${Number(comVirgula)}.${decimais}`
+  }
+
   // Infos
   const navigate = useNavigate()
 
@@ -91,7 +102,7 @@ const FormModal = () => {
                   required
                   value={salario}
                   onChange={(e) => {
-                    dispatch(alteraSalario(e.target.value))
+                    dispatch(alteraSalario(formataInput(e.target.value)))
                   }}
                 />
                 <Form.Control.Feedback>Looks good</Form.Control.Feedback>
@@ -114,7 +125,7 @@ const FormModal = () => {
                   required
                   value={despesas}
                   onChange={(e) => {
-                    dispatch(alteraDespesas(e.target.value))
+                    dispatch(alteraDespesas(formataInput(e.target.value)))
                   }}
                 />
                 <Form.Control.Feedback>Looks good</Form.Control.Feedback>
@@ -137,7 +148,7 @@ const FormModal = () => {
                   required
                   value={dividas}
                   onChange={(e) => {
-                    dispatch(alteraDividas(e.target.value))
+                    dispatch(alteraDividas(formataInput(e.target.value)))
                   }}
                 />
                 <Form.Control.Feedback>Looks good</Form.Control.Feedback>
@@ -160,7 +171,7 @@ const FormModal = () => {
                     required
                     value={juros}
                     onChange={(e) => {
-                      dispatch(alteraJuros(e.target.value))
+                      dispatch(alteraJuros(formataInput(e.target.value)))
                     }}
                   />
                   <InputGroup.Text id="inputGroupFees">%</InputGroup.Text>
