@@ -167,14 +167,15 @@ const Graphics = () => {
               />
               <div className="card-body">
                 <h5 className="card-title">
-                  Acompanhe a diminuicao da sua divida
+                  Monitor the reduction of your debt and the increase in your
+                  capital
                 </h5>
                 <p className="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                  debitis.
                 </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
+                <a href="/" className="btn btn-primary fw-semibold">
+                  Make a new simulation
                 </a>
               </div>
             </div>

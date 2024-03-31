@@ -180,7 +180,7 @@ const FormModal = () => {
               />
             </Form.Group>
             <Button variant="danger" className="fw-semibold" type="submit">
-              Simular
+              Simulate
             </Button>
           </Form>
         </Modal.Body>
