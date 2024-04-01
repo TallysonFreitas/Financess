@@ -1,5 +1,4 @@
 import TituloGradrient from '../../components/TituloGradient'
-import FormModal from '../FormModal'
 
 const Intro = () => {
   return (
@@ -31,8 +30,6 @@ const Intro = () => {
               </span>
               , but we&apos;re here to simplify the process for you.
             </p>
-
-            <FormModal />
           </div>
         </div>
       </div>

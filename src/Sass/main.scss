@@ -19,7 +19,8 @@ $accordion-button-focus-box-shadow:       #fff;
 
 $custom-theme-colors:(
   "altlight":#f2ebfa,
-  "altdark": #522192
+  "altdark": #522192,
+  "successedt": #2C7865
 );
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);

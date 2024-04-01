@@ -62,12 +62,8 @@ const FormModal = () => {
 
   return (
     <>
-      <Button
-        variant="outline-primary"
-        className="fw-semibold"
-        onClick={handleShowModal}
-      >
-        Make a simulation
+      <Button className="fw-semibold btn-success" onClick={handleShowModal}>
+        Tenho interesse
       </Button>
 
       <Modal

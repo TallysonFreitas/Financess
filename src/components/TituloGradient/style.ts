@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const STituloGradient = styled.div`
+export type Props = {
+  fontSize?: string
+}
+
+export const STituloGradient = styled.div<Props>`
   font-size: 4rem;
   text-transform: uppercase;
   background: linear-gradient(
@@ -16,7 +20,7 @@ export const STituloGradient = styled.div`
   -webkit-text-fill-color: transparent;
 
   @media (min-width: 900px) {
-    font-size: 6rem;
+    font-size: ${(props) => (props.fontSize ? props.fontSize : '4rem')};
   }
 
   @keyframes gradient {
