@@ -1,16 +1,19 @@
 import ImgJuros from '../../assets/Taxes.jpg'
+import TituloGradrient from '../../components/TituloGradient'
 import FormModal from '../FormModal'
 
 const Taxes = () => {
   return (
     <section className="bg-dark">
-      <div className="container">
+      <div className="container bg-white p-5 rounded shadow">
         {/* Titulo */}
         <div className="text-center mb-5 text-successedt">
-          <h2 className="fw-bold fs-3 border rounded-pill bg-light py-2 shadow">
-            <i className="bi bi-star-fill"></i> Descubra o poder dos juros
-            compostos! <i className="bi bi-star-fill"></i>
-          </h2>
+          <TituloGradrient gradient="135deg, rgba(181,173,0,1) 0%, rgba(13,152,48,1) 100%">
+            <h2 className="fw-bold fs-3">
+              <i className="bi bi-star-fill"></i> Descubra o poder dos juros
+              compostos! <i className="bi bi-star-fill"></i>
+            </h2>
+          </TituloGradrient>
         </div>
         {/* Content */}
         <div className="row align-items-center">
