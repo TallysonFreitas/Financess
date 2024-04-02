@@ -2,12 +2,18 @@ import { STituloGradient } from './style'
 
 const TituloGradrient = ({
   children,
-  fontSize
+  fontSize,
+  gradient
 }: {
-  children: string
+  children: React.ReactNode
   fontSize?: string
+  gradient?: string
 }) => {
-  return <STituloGradient fontSize={fontSize}>{children}</STituloGradient>
+  return (
+    <STituloGradient fontSize={fontSize} gradient={gradient}>
+      {children}
+    </STituloGradient>
+  )
 }
 
 export default TituloGradrient
