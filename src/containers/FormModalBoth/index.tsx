@@ -15,7 +15,7 @@ import {
 } from '../../Redux/Reducers/ValoresSlice'
 import { useNavigate } from 'react-router-dom'
 
-const FormModal = () => {
+const FormModalBoth = () => {
   // Formatacao Input
 
   function formataInput(e: string) {
@@ -196,4 +196,4 @@ const FormModal = () => {
   )
 }
 
-export default FormModal
+export default FormModalBoth

@@ -1,6 +1,5 @@
-import ImgDebts from '../../assets/Dividas.jpg'
-import TituloGradrient from '../../components/TituloGradient'
-import FormModal from '../FormModal'
+import ImgDebts from '../../assets/Juros.png'
+import FormModal from '../FormModalBoth'
 
 const Debts = () => {
   return (
@@ -8,17 +7,15 @@ const Debts = () => {
       <div className="container bg-dark p-5 rounded shadow">
         {/* Titulo */}
         <div className="text-center mb-5 text-light">
-          <TituloGradrient gradient="90deg, rgba(200,178,0,1) 0%, rgba(201,0,0,1) 100%">
-            <h2 className="fw-bold fs-3">
-              <i className="bi bi-star-fill"></i> Conquiste sua liberdade
-              financeira com facilidade! <i className="bi bi-star-fill"></i>
-            </h2>
-          </TituloGradrient>
+          <h2 className="fw-bold fs-3">
+            <i className="bi bi-star-fill"></i> Conquiste sua liberdade
+            financeira com facilidade! <i className="bi bi-star-fill"></i>
+          </h2>
         </div>
         {/* Content */}
         <div className="row flex-row-reverse align-items-center">
           <div className="col-lg-6">
-            <div className="card text-center shadow">
+            <div className="card text-start shadow">
               <div className="card-header">
                 Você está pronto para se livrar das dívidas de uma vez por
                 todas? Nós temos a solução perfeita para você! 💪💰
@@ -56,7 +53,7 @@ const Debts = () => {
             </div>
           </div>
           <div className="col-lg-6">
-            <img className="img-fluid rounded shadow" src={ImgDebts} alt="" />
+            <img className="img-fluid" src={ImgDebts} alt="" />
           </div>
         </div>
       </div>
