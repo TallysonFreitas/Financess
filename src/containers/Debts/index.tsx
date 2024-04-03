@@ -3,8 +3,8 @@ import FormModal from '../FormModalBoth'
 
 const Debts = () => {
   return (
-    <section className="bg-light">
-      <div className="container bg-dark p-5 rounded shadow">
+    <section className="bg-white">
+      <div className="container bg-dark p-5 rounded shadow-lg">
         {/* Titulo */}
         <div className="text-center mb-5 text-light">
           <h2 className="fw-bold fs-3">
@@ -13,7 +13,10 @@ const Debts = () => {
           </h2>
         </div>
         {/* Content */}
-        <div className="row flex-row-reverse align-items-center">
+        <div className="row flex-md-row flex-row-reverse align-items-center">
+          <div className="col-lg-6">
+            <img className="img-fluid" src={ImgDebts} alt="" />
+          </div>
           <div className="col-lg-6">
             <div className="card text-start shadow">
               <div className="card-header">
@@ -51,9 +54,6 @@ const Debts = () => {
               </div>
               <div className="card-footer text-body-secondary">2 days ago</div>
             </div>
-          </div>
-          <div className="col-lg-6">
-            <img className="img-fluid" src={ImgDebts} alt="" />
           </div>
         </div>
       </div>

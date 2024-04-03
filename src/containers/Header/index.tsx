@@ -6,10 +6,10 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-dark border-bottom border-light-subtle">
         <div className="container">
           <a href="/" className="navbar-brand fw-bold">
-            <span className="text-danger me-2">
+            <span className="text-success me-2">
               <i className="bi bi-bar-chart-fill"></i>
             </span>
-            <span className="text-danger">Financess</span>
+            <span className="text-success">Financess</span>
           </a>
           <button
             className="navbar-toggler bg-light"
